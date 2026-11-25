@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', 'Noto Sans Kannada', 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Noto Sans Malayalam', 'Noto Sans Tamil', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Noto Sans Kannada', 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Noto Sans Malayalam', 'Noto Sans Tamil', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B1120;
+    color: #F8FAFC;
+    letter-spacing: 0.005em;
+  }
+
+  html[data-indic="true"] body {
+    line-height: 1.58;
+    letter-spacing: 0;
+  }
+
+  html[data-indic="true"] button,
+  html[data-indic="true"] select,
+  html[data-indic="true"] input {
+    line-height: 1.45;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+@keyframes green-corridor-badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.48);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes green-corridor-preempt-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.42);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes svg-corridor-ripple {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  75% {
+    transform: scale(1.62);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.62);
+    opacity: 0;
+  }
+}
+
+@keyframes svg-signal-core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 0.9;
+  }
+}
+
+.signal-badge-pulse-green {
+  animation: green-corridor-badge-pulse 1.5s ease-in-out infinite;
+}
+
+.signal-badge-pulse-preempt {
+  animation: green-corridor-preempt-pulse 1.8s ease-in-out infinite;
+}
+
+.svg-corridor-ripple-active {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svg-corridor-ripple 1.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.svg-signal-core-active {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svg-signal-core-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-badge-pulse-green,
+  .signal-badge-pulse-preempt,
+  .svg-corridor-ripple-active,
+  .svg-signal-core-active,
+  .iso-pin-float {
+    animation: none;
+  }
+}

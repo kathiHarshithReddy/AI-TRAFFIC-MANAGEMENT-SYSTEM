@@ -1,0 +1,6 @@
+{
+  "name": "Traffic AI — Bengaluru Smart Traffic & Multi-Modal Eco-Transit",
+  "description": "Hyper-local AI adaptive traffic signal controller and multi-modal eco-transit route optimizer across 160+ Bengaluru localities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
